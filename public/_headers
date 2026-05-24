@@ -1,0 +1,24 @@
+# Cloudflare Pages headers
+# Cache static assets aggressively · keep HTML/llms.txt fresh
+
+/*
+  X-Content-Type-Options: nosniff
+  X-Frame-Options: DENY
+  Referrer-Policy: strict-origin-when-cross-origin
+  Permissions-Policy: geolocation=(), microphone=(), camera=()
+  X-AI-Context: opendefendable
+  X-Defendable-Surface: open-standards-body
+
+/assets/*
+  Cache-Control: public, max-age=31536000, immutable
+
+/llms.txt
+  Cache-Control: public, max-age=3600
+  Content-Type: text/plain; charset=utf-8
+
+/sitemap.xml
+  Cache-Control: public, max-age=3600
+  Content-Type: application/xml; charset=utf-8
+
+/*.html
+  Cache-Control: public, max-age=300, must-revalidate

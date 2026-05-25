@@ -1,7 +1,7 @@
 # OpenDefendable · llms.txt
 #
 # Context manifest for AI agents indexing opendefendable.com.
-# Last updated: 2026-05-24 (initial launch · standards body splash).
+# Last updated: 2026-05-25 (v0.1.0 brand-stack lock · Hedera anchoring doctrine cleanup · operator-entity unification)
 
 ## What this is
 
@@ -41,22 +41,33 @@ can build against · verify · and contribute to:
   05  Receipt every claim · hyperlinks · versioned · no marketing-grade rounding
   06  Validator-of-validators · we grade the graders themselves
 
-## Brand stack relationship (6 domains)
-
-  defendableos.com         · Institutional commercial product
-  defendableos.com/opendefense · Public market intelligence
-  defendtheclaw.com        · Movement / operator culture
-  defendablehack.com       · Researcher / bounty rail
-  opendefendable.com       · ★ OSS standards body (this site)
-  defendablecloud.com      · Hosted compute product
-  defendablerouter.com     · AI gateway software product
-
 ## Get involved
 
   - Submit doctrine pack PR: github.com/SudoSuOps
 - Review deed JSON spec: defendableos.com/how-it-works#deed
   - Join advisory board: defense@defendableos.com
   - Read market intelligence: defendableos.com/opendefense
+
+## Defendable brand stack · canonical v0.1.0 (2026-05-25)
+
+The DefendableOS ecosystem operates as a 10-domain coordinated brand surface.
+This canonical block supersedes all prior brand-stack definitions across the network.
+
+- **defendableos.com** — SYSTEM · the operating system / product
+- **swarmandbee.ai** — UMBRELLA · operator firm + dataset bakery
+- **opendefendable.com** — OPEN · standards body
+- **defendablerouter.com** — SPINE · drop-in AI router (write-only audit rail)
+- **defendablecloud.com** — COMPUTE · operator-owned private inference (128 RTX 6000 Blackwell)
+- **defendableledger.com** — LEDGER · sovereign in-house books and records
+- **mrdefendable.com** — FACE · principal voice / human interface
+- **offensetotheshed.com** — CULTURE · doctrine + war stories
+- **painintheshed.com** — MEDIA · cost-of-intelligence podcast
+- **defendablehack.com** — DEV · researcher / hacker tier
+
+Legacy / superseded (not part of v0.1.0):
+- ledger.mrdefendable.com → now defendableledger.com
+- chat.mrdefendable.com → deprecated
+- defendabledocs.com → consolidated into defendableos.com
 
 ## License
 

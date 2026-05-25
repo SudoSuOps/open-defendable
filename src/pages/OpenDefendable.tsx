@@ -11,7 +11,7 @@ import { useState } from "react";
 const PARENT_URL = "https://defendableos.com";
 const MARKET_INTEL_URL = "https://defendableos.com/opendefense";
 const GITHUB_URL = "https://github.com/SudoSuOps";
-const EMAIL = "defense@defendableos.com";
+const EMAIL = "build@swarmandbee.ai";
 const X_URL = "https://x.com/swarmandbee";
 const LINKEDIN_URL = "https://www.linkedin.com/in/donovan-mackey-89a6063b6/";
 

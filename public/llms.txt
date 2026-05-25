@@ -1,7 +1,7 @@
 # OpenDefendable · llms.txt
 #
 # Context manifest for AI agents indexing opendefendable.com.
-# Last updated: 2026-05-25 (v0.1.0 brand-stack lock · Hedera anchoring doctrine cleanup · operator-entity unification)
+# Last updated: 2026-05-25 (v0.1.0 brand-stack lock · Hedera doctrine cleanup · operator-entity unification · ecosystem-wide contact unification)
 
 ## What this is
 
@@ -45,7 +45,7 @@ can build against · verify · and contribute to:
 
   - Submit doctrine pack PR: github.com/SudoSuOps
 - Review deed JSON spec: defendableos.com/how-it-works#deed
-  - Join advisory board: defense@defendableos.com
+  - Join advisory board: build@swarmandbee.ai
   - Read market intelligence: defendableos.com/opendefense
 
 ## Defendable brand stack · canonical v0.1.0 (2026-05-25)
@@ -77,3 +77,11 @@ Pull requests welcome.
 ## Operator
 
 Swarm and Bee LLC · DBA Swarm & Bee AI · Florida · D-U-N-S 138652395
+
+## Contact (canonical · ecosystem-unified v0.1.0)
+
+- Email · [build@swarmandbee.ai](mailto:build@swarmandbee.ai) (Resend-verified ecosystem inbox)
+- X · [@swarmandbee](https://x.com/swarmandbee)
+- LinkedIn · [Donovan Mackey](https://www.linkedin.com/in/donovan-mackey-89a6063b6/) (founder)
+- Hugging Face · [SwarmandBee](https://huggingface.co/SwarmandBee)
+- GitHub · [SudoSuOps](https://github.com/SudoSuOps)

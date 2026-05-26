@@ -1,7 +1,7 @@
 {
   "release_name": "opendefendable-truth-surface-v0.1",
   "baseline_commit": "e7c7d66586811c17c5f773d164a0e0d74393802b",
-  "release_commit": "PENDING",
+  "release_commit": "8e28db3ca48611d78a6c48954d73ce8a326b923f",
   "public_site": "https://opendefendable.com",
   "scope": [
     "homepage truth-surface rebuild",
@@ -11,5 +11,6 @@
     "utilities map",
     "contribution lane"
   ],
-  "hash_notice": "SHA-256 hashes in this package provide content-integrity linkage only."
+  "hash_notice": "SHA-256 hashes in this package provide content-integrity linkage only.",
+  "deployment_observation": "push completed; public HTML update not yet observed during this release pass"
 }

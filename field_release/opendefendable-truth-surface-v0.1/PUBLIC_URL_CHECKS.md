@@ -1,8 +1,14 @@
 # Public URL Checks
 
-To be updated after push and deployment verification.
-
-Expected checks:
+Checked after push on 2026-05-26:
 
 - `https://opendefendable.com`
-- links to scoreboard, protocols, audit repo, and contribution docs
+  - reachable: yes
+  - deployment of rebuilt truth surface observed: no
+  - observed title still old: `OpenDefendable · The Open Standards Body for AI Agent Defense`
+
+Expected post-deploy checks when propagation completes:
+
+- new title and description present
+- scoreboard visible
+- protocol and audit links visible

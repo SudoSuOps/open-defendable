@@ -5,6 +5,9 @@ Purpose: rebuild `opendefendable.com` from positioning surface into public truth
 Baseline commit:
 - `e7c7d66586811c17c5f773d164a0e0d74393802b`
 
+Release commit:
+- `8e28db3ca48611d78a6c48954d73ce8a326b923f`
+
 Scope:
 - homepage scoreboard architecture
 - protocol index
@@ -16,4 +19,6 @@ Scope:
 Hash limitation:
 - published hashes in this package provide content-integrity linkage only
 
-Deployment verification and final release commit are recorded after push.
+Deployment check after push:
+- push completed
+- public HTML update was not yet observed at `https://opendefendable.com` during this release pass

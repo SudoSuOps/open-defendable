@@ -437,6 +437,7 @@ function Footer() {
             heading="Contribute"
             links={[
               ["GitHub repo", GITHUB_REPO],
+              ["Hugging Face", "https://huggingface.co/SwarmandBee"],
               ["CONTRIBUTING.md", `${GITHUB_REPO}/blob/main/CONTRIBUTING.md`],
               ["ROADMAP.md", `${GITHUB_REPO}/blob/main/ROADMAP.md`],
               ["LIMITATIONS.md", `${GITHUB_REPO}/blob/main/LIMITATIONS.md`],

@@ -2,7 +2,7 @@
   "name": "open-defendable",
   "version": "0.1.0",
   "private": true,
-  "description": "OpenDefendable — The open standards body for AI agent defense. Doctrine pack registry, contributor SDKs, cross-vendor specifications.",
+  "description": "OpenDefendable — open-source truth surface for accountable AI systems with public protocols, audit links, scoreboard records, and contribution lanes, ready with limitations.",
   "type": "module",
   "scripts": {
     "dev": "vite",

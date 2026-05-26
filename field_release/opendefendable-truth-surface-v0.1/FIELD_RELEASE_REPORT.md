@@ -21,4 +21,4 @@ Hash limitation:
 
 Deployment check after push:
 - push completed
-- public HTML update was not yet observed at `https://opendefendable.com` during this release pass
+- public HTML update was observed at `https://opendefendable.com`

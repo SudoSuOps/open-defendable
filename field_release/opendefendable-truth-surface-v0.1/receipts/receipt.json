@@ -1,6 +1,6 @@
 {
   "release_name": "opendefendable-truth-surface-v0.1",
-  "status": "PUSHED_DEPLOYMENT_NOT_YET_OBSERVED",
+  "status": "PUSHED_AND_PUBLIC_HTML_OBSERVED",
   "baseline_commit": "e7c7d66586811c17c5f773d164a0e0d74393802b",
   "release_commit": "8e28db3ca48611d78a6c48954d73ce8a326b923f",
   "statement": "Hashes are content-integrity linkage only."

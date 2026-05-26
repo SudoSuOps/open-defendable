@@ -2,13 +2,14 @@
 
 The opendefendable.com source.
 
-OpenDefendable is the **open standards body for AI agent defense** — the
-OSS / contributor / standards-body surface in the Defendable brand stack.
+OpenDefendable is the **open-source truth surface** in the Defendable brand stack:
+protocols, audits, utilities, wins, losses, repair queue, and contribution lanes.
 
-- Live site · https://opendefendable.com (after Cloudflare Pages deploy)
-- Market intelligence · https://defendableos.com/opendefense
-- Commercial product · https://defendableos.com
-- GitHub · https://github.com/SudoSuOps
+- Live site · https://opendefendable.com
+- Commercial/front door · https://defendableos.com
+- DefendableDocs field release · https://defendabledocs.com/field-release/overview/
+- Tribunal tape · https://github.com/SudoSuOps/defendableos-tribunal-audit
+- GitHub org · https://github.com/SudoSuOps
 
 ## Stack
 
@@ -26,6 +27,16 @@ npm run build     # writes to dist/
 npm run preview   # preview production build
 ```
 
+## Purpose
+
+This repo should help contributors:
+
+- verify public claims against accepted audit tape
+- inspect current wins and losses
+- find protocol documents
+- find public utility repos
+- understand what is off-limits to claim
+
 ## Deploy · Cloudflare Pages
 
 1. Cloudflare Pages → Create application → Connect to Git
@@ -40,5 +51,17 @@ That's it. CF Pages handles the rest.
 ## License
 
 MIT-attribution. Cite OpenDefendable / DefendableOS when reusing content.
+
+## Public claim boundary
+
+OpenDefendable must not claim:
+
+- production readiness
+- certification
+- insurance coverage
+- external SaaS enforcement
+- immutable proof
+- blockchain anchoring
+- standards-body governance that does not yet exist in public artifacts
 
 © 2026 Swarm and Bee LLC · DBA Swarm & Bee AI · D-U-N-S 138652395

@@ -1,0 +1,7 @@
+{
+  "release_name": "opendefendable-truth-surface-v0.1",
+  "status": "PENDING_VERIFICATION",
+  "baseline_commit": "e7c7d66586811c17c5f773d164a0e0d74393802b",
+  "release_commit": "PENDING",
+  "statement": "Hashes are content-integrity linkage only."
+}

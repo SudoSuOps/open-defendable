@@ -1,0 +1,18 @@
+{
+  "runtime_module_chain": "VERIFIED_AS_REPAIRED_WITH_LIMITATIONS",
+  "swarm_doctor": "VERIFIED_AS_REPAIRED_WITH_LIMITATIONS",
+  "conditioning_coach": "VERIFIED_AS_REPAIRED_WITH_LIMITATIONS",
+  "owner_roster_registry": "VERIFIED_AS_REPAIRED_WITH_LIMITATIONS",
+  "permission_broker": "VERIFIED_AS_REPAIRED_WITH_LIMITATIONS",
+  "defendablecloud_demo": "REPAIR_REQUIRED",
+  "defendabledocs_field_release_pages": "VERIFIED_AS_DOCUMENTED_WITH_LIMITATIONS",
+  "defendabledocs_broader_alignment": "REPAIR_REQUIRED",
+  "defendablerouter_public_utility": "POSITIONING_SURFACE_ONLY",
+  "router_to_cloud_integration": "FIELD INTEGRATION PENDING",
+  "public_demo_usability": "READY_WITH_LIMITATIONS",
+  "defendabledocs_owner_record": "READY_WITH_LIMITATIONS",
+  "client_pilot": "HOLD",
+  "production": "NOT CLEARED FOR PRODUCTION",
+  "external_saas_enforcement": "NOT CLEARED FOR EXTERNAL SAAS ENFORCEMENT",
+  "certification_insurance_blockchain_anchoring": "NOT CLAIMED"
+}

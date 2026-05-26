@@ -1,8 +1,8 @@
 import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
 
-// DefendableOS — minimal standalone React + Vite app.
-// Deployed to defendableos.com via Cloudflare Pages.
+// OpenDefendable — minimal standalone React + Vite app.
+// Deployed to opendefendable.com via Cloudflare Pages.
 export default defineConfig({
   plugins: [react()],
   build: {

@@ -45,6 +45,7 @@ This repo should help contributors:
 4. Build output directory · `dist`
 5. Production branch · `main`
 6. Add custom domain · `opendefendable.com`
+7. Add `RESEND_API_KEY` in Production and Preview for the founder-routed contact form
 
 That's it. CF Pages handles the rest.
 

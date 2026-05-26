@@ -1,7 +1,10 @@
+import { useState } from "react";
+
 const GITHUB_REPO = "https://github.com/SudoSuOps/open-defendable";
 const AUDIT_REPO = "https://github.com/SudoSuOps/defendableos-tribunal-audit";
 const DOCS_FIELD_RELEASE = "https://defendabledocs.com/field-release/overview/";
 const CLOUD_DEMO = "https://defendablecloud.com/agent-operations-demo";
+const SALES_EMAIL = "build@swarmandbee.ai";
 
 const wins = [
   "Four runtime module repos are public.",
@@ -99,6 +102,7 @@ export default function OpenDefendable() {
         <AuditIndex />
         <UtilityTable />
         <ContributionLane />
+        <ContactLane />
       </main>
       <Footer />
     </div>
@@ -126,6 +130,7 @@ function Header() {
     ["Audit index", "#audits"],
     ["Utilities", "#utilities"],
     ["Contribute", "#contribute"],
+    ["Contact", "#contact"],
   ];
   return (
     <header className="sticky top-0 z-40 border-b border-stone-800/60 bg-neutral-950/88 backdrop-blur-md">
@@ -346,6 +351,146 @@ function ContributionLane() {
   );
 }
 
+type ContactStatus = "idle" | "sending" | "ok" | "error";
+
+function ContactLane() {
+  const [status, setStatus] = useState<ContactStatus>("idle");
+  const [errorMsg, setErrorMsg] = useState("");
+  const [form, setForm] = useState({
+    name: "",
+    email: "",
+    company: "",
+    message: "",
+  });
+
+  async function onSubmit(e: React.FormEvent) {
+    e.preventDefault();
+    if (status === "sending") return;
+    setStatus("sending");
+    setErrorMsg("");
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(form),
+      });
+      if (!res.ok) {
+        const body = (await res.json().catch(() => ({}))) as { error?: string };
+        throw new Error(body.error || `HTTP ${res.status}`);
+      }
+      setStatus("ok");
+      setForm({ name: "", email: "", company: "", message: "" });
+    } catch (err: unknown) {
+      setStatus("error");
+      setErrorMsg(err instanceof Error ? err.message : "Send failed");
+    }
+  }
+
+  function updateField<K extends keyof typeof form>(key: K, value: (typeof form)[K]) {
+    setForm((current) => ({ ...current, [key]: value }));
+  }
+
+  return (
+    <section id="contact" className="border-t border-stone-900/80 py-18 lg:py-22 bg-stone-950/40">
+      <div className="max-w-7xl mx-auto px-6">
+        <div className="grid gap-10 lg:grid-cols-[1fr_1fr] items-start">
+          <div>
+            <SectionHead
+              eyebrow="Contact"
+              title="Contact us without the theater."
+              body="This route goes to build@swarmandbee.ai. Use it for truth-surface corrections, protocol questions, contribution coordination, or public-claim mismatch reports."
+            />
+            <div className="mt-8 rounded-[1.35rem] border border-stone-800 bg-neutral-950/85 px-6 py-6">
+              <div className="text-[10px] uppercase tracking-[0.22em] text-amber-300/80 font-semibold">Direct</div>
+              <a
+                href={`mailto:${SALES_EMAIL}`}
+                className="mt-3 inline-block font-mono text-lg text-amber-300 hover:text-amber-200 transition-colors"
+              >
+                {SALES_EMAIL}
+              </a>
+              <p className="mt-3 text-sm leading-relaxed text-stone-400">
+                Founder-routed contact lane only. No production clearance, certification, or external enforcement claims are implied by a reply.
+              </p>
+            </div>
+          </div>
+
+          <form
+            onSubmit={onSubmit}
+            className="rounded-[1.35rem] border border-stone-800 bg-neutral-950/85 px-6 py-6 space-y-4"
+          >
+            <Field label="Your name" required>
+              <input
+                type="text"
+                required
+                value={form.name}
+                onChange={(e) => updateField("name", e.target.value)}
+                className={inputCls}
+                autoComplete="name"
+              />
+            </Field>
+
+            <Field label="Email" required>
+              <input
+                type="email"
+                required
+                value={form.email}
+                onChange={(e) => updateField("email", e.target.value)}
+                className={inputCls}
+                autoComplete="email"
+              />
+            </Field>
+
+            <Field label="Company">
+              <input
+                type="text"
+                value={form.company}
+                onChange={(e) => updateField("company", e.target.value)}
+                className={inputCls}
+                autoComplete="organization"
+                placeholder="optional"
+              />
+            </Field>
+
+            <Field label="Message" required>
+              <textarea
+                required
+                rows={6}
+                value={form.message}
+                onChange={(e) => updateField("message", e.target.value)}
+                className={`${inputCls} resize-none leading-relaxed`}
+                placeholder="What needs correction, verification, or coordination?"
+              />
+            </Field>
+
+            {status === "error" && (
+              <div className="rounded border border-rose-500/40 bg-rose-500/[0.06] px-4 py-3 text-xs text-rose-300">
+                {errorMsg || "Send failed. Email build@swarmandbee.ai directly."}
+              </div>
+            )}
+            {status === "ok" && (
+              <div className="rounded border border-emerald-500/40 bg-emerald-500/[0.06] px-4 py-3 text-xs text-emerald-300">
+                Message received.
+              </div>
+            )}
+
+            <button
+              type="submit"
+              disabled={status === "sending"}
+              className="w-full rounded-full bg-amber-400 px-5 py-3 text-sm font-semibold text-neutral-950 hover:bg-amber-300 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+            >
+              {status === "sending" ? "Sending..." : status === "ok" ? "Sent" : "Contact us"}
+            </button>
+
+            <p className="text-[10px] text-stone-500 leading-relaxed italic">
+              Routed to {SALES_EMAIL}. Public contact path only. Hashes and replies do not imply certification, insurance, or production clearance.
+            </p>
+          </form>
+        </div>
+      </div>
+    </section>
+  );
+}
+
 function SectionHead({ eyebrow, title, body }: { eyebrow: string; title: string; body: string }) {
   return (
     <div className="max-w-3xl">
@@ -397,6 +542,21 @@ function SecondaryLink({ href, children }: { href: string; children: React.React
   );
 }
 
+const inputCls =
+  "w-full rounded-xl border border-stone-800 bg-stone-900/80 px-4 py-3 text-sm text-stone-100 placeholder:text-stone-600 outline-none transition-colors focus:border-amber-500 focus:ring-1 focus:ring-amber-500/40";
+
+function Field({ label, required, children }: { label: string; required?: boolean; children: React.ReactNode }) {
+  return (
+    <label className="block">
+      <span className="mb-1.5 block text-[11px] font-semibold uppercase tracking-[0.14em] text-stone-400">
+        {label}
+        {required && <span className="ml-1 text-amber-400">*</span>}
+      </span>
+      {children}
+    </label>
+  );
+}
+
 function Emblem() {
   return (
     <span className="inline-flex w-9 h-9 rounded border border-amber-400/40 items-center justify-center text-amber-300 bg-amber-500/[0.04]">
@@ -437,6 +597,7 @@ function Footer() {
             heading="Contribute"
             links={[
               ["GitHub repo", GITHUB_REPO],
+              ["build@swarmandbee.ai", `mailto:${SALES_EMAIL}`],
               ["Hugging Face", "https://huggingface.co/SwarmandBee"],
               ["CONTRIBUTING.md", `${GITHUB_REPO}/blob/main/CONTRIBUTING.md`],
               ["ROADMAP.md", `${GITHUB_REPO}/blob/main/ROADMAP.md`],

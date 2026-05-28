@@ -5,8 +5,8 @@ const CLOUD_URL = "https://defendablecloud.com";
 const ROUTER_URL = "https://defendablerouter.com";
 const MARKET_INTEL_URL = "https://defendableos.com/opendefense";
 const GITHUB_URL = "https://github.com/SudoSuOps";
-const EMAIL = "build@swarmandbee.ai";
-const X_URL = "https://x.com/swarmandbee";
+const EMAIL = "build@defendableos.com";
+const X_URL = "https://x.com/mrdefendable";
 const LINKEDIN_URL = "https://www.linkedin.com/in/donovan-mackey-89a6063b6/";
 
 const receiptExample = `{

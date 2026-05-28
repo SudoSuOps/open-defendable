@@ -50,8 +50,8 @@ OpenDefendable is a public standards and contribution surface. It is not yet a c
 
 ## Contact
 
-- Email: build@swarmandbee.ai
-- X: https://x.com/swarmandbee
+- Email: build@defendableos.com
+- X: https://x.com/mrdefendable
 - LinkedIn: https://www.linkedin.com/in/donovan-mackey-89a6063b6/
 - GitHub: https://github.com/SudoSuOps
 

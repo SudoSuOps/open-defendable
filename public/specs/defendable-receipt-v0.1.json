@@ -1,0 +1,72 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://opendefendable.com/specs/defendable-receipt-v0.1.json",
+  "title": "Defendable Receipt v0.1",
+  "description": "Starter public schema for proof records emitted by Defendable-compatible routers, workers, datasets, policy engines, and agent runtimes.",
+  "type": "object",
+  "required": [
+    "receipt_id",
+    "receipt_type",
+    "subject",
+    "created_at",
+    "checksum_sha256"
+  ],
+  "properties": {
+    "receipt_id": {
+      "type": "string",
+      "description": "Stable receipt identifier. Implementations should use collision-resistant IDs."
+    },
+    "receipt_type": {
+      "type": "string",
+      "enum": [
+        "agent_action",
+        "dataset_access",
+        "compute_quote",
+        "compute_job",
+        "fine_tune_job",
+        "worker_registered",
+        "job_leased",
+        "artifact_reported",
+        "policy_evaluation",
+        "audit_export"
+      ]
+    },
+    "subject": {
+      "type": "object",
+      "description": "Actor, agent, member, worker, or system that produced or caused the event.",
+      "additionalProperties": true
+    },
+    "policy": {
+      "type": "object",
+      "description": "Policy pack, rules, controls, or review requirements evaluated for this action.",
+      "additionalProperties": true
+    },
+    "inputs": {
+      "type": "object",
+      "description": "Datasets, prompts, tools, models, job parameters, or other material inputs.",
+      "additionalProperties": true
+    },
+    "outcome": {
+      "type": "object",
+      "description": "Result, decision, status transition, cost, artifact URI, or failure state.",
+      "additionalProperties": true
+    },
+    "amount_usd": {
+      "type": ["number", "null"],
+      "minimum": 0
+    },
+    "metadata": {
+      "type": "object",
+      "additionalProperties": true
+    },
+    "created_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "checksum_sha256": {
+      "type": "string",
+      "description": "SHA-256 digest of canonical receipt JSON excluding checksum_sha256."
+    }
+  },
+  "additionalProperties": true
+}

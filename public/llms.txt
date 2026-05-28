@@ -1,72 +1,60 @@
 # OpenDefendable · llms.txt
-#
-# Context manifest for AI agents indexing opendefendable.com.
-# Last updated: 2026-05-26 (machine-readable truth repair v0.1)
 
-## What this surface is
+Context manifest for AI agents indexing opendefendable.com.
+Last updated: 2026-05-28
 
-OpenDefendable is an open-source truth surface in formation for
-accountable AI systems.
+## What This Is
 
-- Status: READY_WITH_LIMITATIONS
-- Role: public scoreboard, protocols, audit links, utilities, and contribution lanes
-- Movement participation surface: yes
-- Formal standards body: no
-- Certification authority: no
+OpenDefendable is the public standards and community layer for the Defendable ecosystem.
 
-## What exists publicly today
+It publishes reusable artifacts for defendable AI work:
 
-- Public scoreboard of wins and losses
-- Protocol documents
-- Audit index and tribunal links
-- Contribution guidance
-- Limitations and roadmap records
+- receipt schemas
+- worker contracts
+- dataset provenance patterns
+- policy-pack formats
+- conformance cases
+- implementation notes
+- public research summaries
 
-## Current project truth
+## Ecosystem Role
 
-- Public demo: READY_WITH_LIMITATIONS
-- DefendableDocs: READY_WITH_LIMITATIONS
-- DefendableRouter: NOT_YET_INTEGRATED
-- Client pilot: HOLD
-- Production: NOT CLEARED
-- External SaaS enforcement: NOT CLEARED
-- Certification / insurance / blockchain anchoring: NOT CLAIMED
+- DefendableOS: commercial operating layer and product doctrine
+- DefendableCloud: member-only datasets and private GPU compute
+- DefendableRouter: member gate, compute meter, job router, receipt ledger
+- DefendableWorker: owned-rig worker agent that leases jobs and reports results
+- OpenDefendable: public specs, schemas, policy packs, and RFCs
 
-## Linked surfaces
+## Core Doctrine
 
-- Main front door: https://defendableos.com/
-- Cloud demo: https://defendablecloud.com/
-- Docs: https://defendabledocs.com/
-- Router: https://defendablerouter.com/
-- Tribunal audit: https://github.com/SudoSuOps/defendableos-tribunal-audit
+- Members get the datasets.
+- Compute gets metered.
+- Every job gets a receipt.
+- Every dataset access gets a receipt.
+- Every compute quote gets a receipt.
+- Receipts should be structured, checksumed, inspectable, and portable.
 
-## Purpose
+## Current Public Specs
 
-Use OpenDefendable to inspect:
-- protocols
-- audits
-- repair queues
-- open-source utilities
-- current limitations
-- contribution lanes
+- https://opendefendable.com/specs/defendable-receipt-v0.1.json
+- https://opendefendable.com/specs/defendable-worker-v0.2.json
 
-Do not treat this surface as:
-- a formal standards body
-- production clearance
-- certification
-- insurance coverage
-- external enforcement approval
+## Publication Policy
 
-## Hash limitation
+OpenDefendable should publish curated, useful, source-linked public artifacts.
+It should not publish raw strategy docs, private market-intel notes, customer wedge plans, pricing strategy, or unverified competitive claims.
 
-SHA-256 hashes in linked audit materials establish content-integrity
-linkage only. They do not independently prove authorship, owner
-approval, trusted timestamping, immutability, blockchain anchoring,
-external attestation, certification, insurance coverage, or external
-platform enforcement.
+## Current Limitations
+
+OpenDefendable is a public standards and contribution surface. It is not yet a certification authority, insurance product, external enforcement service, or formal standards body. Hashes and checksums establish content-integrity linkage only unless paired with an external trusted timestamp, ledger anchor, or third-party attestation.
 
 ## Contact
 
-- build@swarmandbee.ai
-- https://github.com/SudoSuOps/open-defendable
-- https://huggingface.co/SwarmandBee
+- Email: build@swarmandbee.ai
+- X: https://x.com/swarmandbee
+- LinkedIn: https://www.linkedin.com/in/donovan-mackey-89a6063b6/
+- GitHub: https://github.com/SudoSuOps
+
+## License
+
+MIT-attribution. Cite OpenDefendable / DefendableOS when reusing content.

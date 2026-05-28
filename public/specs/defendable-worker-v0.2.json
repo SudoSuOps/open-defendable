@@ -1,0 +1,66 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://opendefendable.com/specs/defendable-worker-v0.2.json",
+  "title": "DefendableWorker Contract v0.2",
+  "description": "Public starter contract for worker agents that call home to a DefendableRouter-compatible control plane.",
+  "type": "object",
+  "required": ["version", "endpoints", "auth"],
+  "properties": {
+    "version": {
+      "const": "0.2"
+    },
+    "auth": {
+      "type": "object",
+      "required": ["scheme", "storage"],
+      "properties": {
+        "scheme": { "const": "bearer_token" },
+        "storage": { "const": "router_stores_token_hash_only" }
+      }
+    },
+    "endpoints": {
+      "type": "object",
+      "required": [
+        "register",
+        "heartbeat",
+        "lease_job",
+        "accept_job",
+        "status_event",
+        "log_chunk",
+        "artifact_report",
+        "complete_job",
+        "fail_job"
+      ],
+      "properties": {
+        "register": { "const": "POST /workers/register" },
+        "heartbeat": { "const": "POST /workers/heartbeat" },
+        "lease_job": { "const": "POST /workers/jobs/lease" },
+        "accept_job": { "const": "POST /workers/jobs/{job_id}/accept" },
+        "status_event": { "const": "POST /workers/jobs/{job_id}/status" },
+        "log_chunk": { "const": "POST /workers/jobs/{job_id}/logs" },
+        "artifact_report": { "const": "POST /workers/jobs/{job_id}/artifacts" },
+        "complete_job": { "const": "POST /workers/jobs/{job_id}/complete" },
+        "fail_job": { "const": "POST /workers/jobs/{job_id}/fail" }
+      }
+    },
+    "capabilities": {
+      "type": "object",
+      "properties": {
+        "gpu_skus": { "type": "array", "items": { "type": "string" } },
+        "gpu_count": { "type": "integer", "minimum": 0 },
+        "vram_gb_total": { "type": "integer", "minimum": 0 },
+        "supports": { "type": "array", "items": { "type": "string" } },
+        "runtime": { "type": "object", "additionalProperties": true }
+      },
+      "additionalProperties": true
+    },
+    "lease": {
+      "type": "object",
+      "properties": {
+        "default_ttl_seconds": { "const": 600 },
+        "lease_token_storage": { "const": "router_stores_token_hash_only" },
+        "expired_job_behavior": { "const": "return_nonfinal_job_to_queue" }
+      }
+    }
+  },
+  "additionalProperties": true
+}

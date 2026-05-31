@@ -1,0 +1,107 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://opendefendable.com/specs/defendable-receipt-v1.json",
+  "title": "Defendable Receipt Envelope v1",
+  "description": "The canonical hash-chained receipt envelope for the Defendable house. Supersedes defendable-receipt-v0.1 (checksummed-only draft). Reference implementation: open-defendable/reference/defendable_receipt.py. Spec: open-defendable/RECEIPT-SCHEMA.md. SHA-256 establishes content-integrity and chain-order ONLY.",
+  "type": "object",
+  "required": [
+    "schema",
+    "receipt_id",
+    "receipt_type",
+    "chain_id",
+    "seq",
+    "parent_hash",
+    "created_at",
+    "subject",
+    "payload",
+    "receipt_sha256"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "schema": {
+      "const": "defendable.receipt/v1",
+      "description": "Envelope schema id + version. Always defendable.receipt/v1."
+    },
+    "receipt_id": {
+      "type": "string",
+      "pattern": "^DCR-[0-9]{6}-[0-9a-f]{8}$",
+      "description": "DCR-{seq:06d}-{hex8}. Legacy rcpt_{uuid} ids are accepted in-chain during migration but not minted."
+    },
+    "receipt_type": {
+      "type": "string",
+      "enum": [
+        "eval",
+        "cook",
+        "dataset-download",
+        "dataset-promotion",
+        "model-pin",
+        "incident",
+        "compute",
+        "job",
+        "retrieval",
+        "deed"
+      ],
+      "description": "House type. The matching payload.schema carries the type detail."
+    },
+    "chain_id": {
+      "type": "string",
+      "pattern": "^(house|org:.+)$",
+      "description": "Which chain this receipt belongs to. 'org:{org_id}' for per-org chains (Cloud), 'house' for the single-tenant spine chain (Router)."
+    },
+    "seq": {
+      "type": "integer",
+      "minimum": 0,
+      "description": "Monotonic sequence within chain_id. Genesis is 0. No gaps."
+    },
+    "parent_hash": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$",
+      "description": "The receipt_sha256 of the prior receipt in this chain. Genesis parent is 64 zeros."
+    },
+    "created_at": {
+      "type": "string",
+      "format": "date-time",
+      "description": "ISO-8601 UTC mint time."
+    },
+    "subject": {
+      "type": "object",
+      "description": "What this receipt is about. Nulls allowed for fields that don't apply.",
+      "properties": {
+        "member_id": { "type": ["string", "null"] },
+        "org_id": { "type": ["string", "null"] },
+        "run_id": { "type": ["string", "null"] },
+        "job_id": { "type": ["string", "null"] },
+        "dataset_ids": {
+          "type": "array",
+          "items": { "type": "string" }
+        }
+      }
+    },
+    "amount_usd": {
+      "type": ["string", "null"],
+      "pattern": "^[0-9]+\\.[0-9]{2}$",
+      "description": "Money moved/metered as a 2-decimal string ('6.00'), never a float. Omit/null if none."
+    },
+    "payload": {
+      "type": "object",
+      "required": ["schema"],
+      "description": "Type-specific body. MUST carry payload.schema (e.g. defendable.eval-receipt/v1). Additional fields allowed.",
+      "properties": {
+        "schema": {
+          "type": "string",
+          "pattern": "^defendable\\.[a-z-]+-receipt/v[0-9]+$"
+        }
+      }
+    },
+    "metadata": {
+      "type": "object",
+      "description": "Free-form, non-load-bearing context. Never store secrets here."
+    },
+    "receipt_sha256": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$",
+      "description": "SHA-256 over the canonical body (the full receipt minus receipt_sha256). Appended after hashing. seq + parent_hash ARE inside the hashed body."
+    }
+  },
+  "$comment": "Canonicalization: sorted keys, separators (\",\",\":\"), UTF-8, money as 2dp strings, datetimes as ISO-8601. Verify: strip receipt_sha256, canonicalize, SHA-256, compare; then confirm parent_hash == prior receipt's receipt_sha256. Migration: readers MUST also accept the legacy field name 'checksum_sha256' until the Router cutover completes (RECEIPT-SCHEMA.md §7)."
+}
